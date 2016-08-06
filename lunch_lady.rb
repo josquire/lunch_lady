@@ -9,14 +9,18 @@ def wallet
 end
 
 def main_menu
-  puts "What main dish would like?"
+  puts "\nWhat main dish would like?"
   puts "  1: Meatloaf $5.00"
   puts "  2: Mystery Meat $3.00"
   puts "  3: Hash $2.00"
-  puts "  4: Exit"
+  puts "  4: Food info"
+  puts "  5: Exit"
   @main_input = gets.to_i - 1
-    if @main_input == 3
+    if @main_input == 4
       exit
+    elsif
+      @main_input == 3
+      view_description
     else
       @plates << @main[@main_input]
       first_choice
@@ -104,6 +108,33 @@ def order_new_meal
     puts "Thank you for your order."
     exit
   end
+end
+
+def view_description
+  puts "\nWhich item would you like a description of?"
+  puts "  1. Meatloaf"
+  puts "  2. Mystery Meat"
+  puts "  3. Hash"
+  puts "  4. Back to main menu"
+  description = gets.to_i
+
+  case description
+    when 1
+      puts @main[0][:meal]
+      puts @main[0][:description]
+      puts "calories: #{@main[0][:calories]}"
+    when 2
+      puts @main[1][:meal]
+      puts @main[1][:description]
+      puts "calories: #{@main[1][:calories]}"
+    when 3
+      puts @main[2][:meal]
+      puts @main[2][:description]
+      puts "calories: #{@main[2][:calories]}"
+    else
+      main_menu
+  end
+  view_description
 end
 
 wallet
