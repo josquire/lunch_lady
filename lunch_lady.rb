@@ -4,7 +4,7 @@ require 'pry'
 def wallet
   puts "How much money do you have to spend?"
   #can I change the prompt to be a dollar sign?
-  @wallet = gets.to_i
+  @wallet = gets.to_f
   main_menu
 end
 
